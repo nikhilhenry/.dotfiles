@@ -1,5 +1,6 @@
 # ==Paths==
 export PATH="$PATH:/home/nikhilhenry/.local/bin"
+export PATH="$PATH:/home/nikhilhenry/.local/scripts"
 export PATH="$PATH:/usr/local/go/bin"
 
 # ==zinit setup==
@@ -27,6 +28,7 @@ bindkey '^ ' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey -s '^f' 'tmux-sessionizer'
 
 # ==History==
 HISTSIZE=5000
