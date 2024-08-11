@@ -1,0 +1,19 @@
+import = [
+	"~/.config/alacritty/tokyo_night.toml"
+]
+
+live_config_reload = true
+
+[font]
+size = 22
+
+[font.normal]
+family = "JetBrainsMono NFM"
+style = "Regular"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+title = "Alacritty@Legion5Pro"
+dynamic_title = false
