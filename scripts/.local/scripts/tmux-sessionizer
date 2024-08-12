@@ -14,7 +14,6 @@ selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    echo "need to open new"
     tmux new-session -A -s $selected_name -c $selected
     exit 0
 fi
