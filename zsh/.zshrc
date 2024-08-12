@@ -2,6 +2,7 @@
 export PATH="$PATH:/home/nikhilhenry/.local/bin"
 export PATH="$PATH:/home/nikhilhenry/.local/scripts"
 export PATH="$PATH:/usr/local/go/bin"
+export SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
 
 # ==zinit setup==
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
