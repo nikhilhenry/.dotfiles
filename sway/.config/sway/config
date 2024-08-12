@@ -23,9 +23,9 @@ include /etc/sway/config-vars.d/*
 # Example configuration:
 #
 exec swayidle -w \
-          timeout 60 'swaylock -f -c 000000 -e -i ~/Documents/dotfiles/walls/waves.png' \
-          timeout 120 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
+          timeout 300 'swaylock -f -c 000000 -e -i ~/Documents/dotfiles/walls/waves.png' \
+          timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000 -i ~/Documents/dotfiles/walls/waves.png'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -199,7 +199,7 @@ output "*" bg ~/Documents/dotfiles/walls/waves.png fill
 # Gnome keyring
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets,ssh
-exec --no-startup-id systemctl status --user gnome-keyring-ssh
+exec --no-startup-id systemctl enable --now --user gnome-keyring-ssh
 
 # Window binds
 assign [app_id="firefox"] workspace number 1
