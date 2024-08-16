@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+bat_perc=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | rg "percentage" | tr -d -c 0-9`
+
+if [ $bat_perc -lt 59 ] 
+then
+		system76-power profile battery
+else 
+		system76-power profile balanced
+fi
+

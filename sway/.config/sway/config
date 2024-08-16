@@ -18,6 +18,9 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
+# setting the power mode
+exec auto_battery
+
 ### Idle configuration
 #
 # Example configuration:

@@ -2,11 +2,12 @@
 
 # school folders
 school=$(find ~/Documents/school -mindepth 1 -maxdepth 1 -type d)
+dl_labs=$(find ~/Documents/school/dl/labs)
 
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Documents/work/ ~/Documents/projects ~/Documents/school $school ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/Documents/work/ ~/Documents/projects ~/Documents/school $school $dl_labs ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
