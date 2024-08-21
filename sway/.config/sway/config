@@ -18,21 +18,8 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
-# setting the power mode
-exec auto_battery
-
 ### Idle configuration
-#
-# Example configuration:
-#
-exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000 -e -i ~/Documents/dotfiles/walls/waves.png' \
-          timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000 -i ~/Documents/dotfiles/walls/waves.png'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w before-sleep 'swaylock -f -c 000000 -i ~/Documents/dotfiles/walls/waves.png'
 
 ### Input configuration
 input type:touchpad {
@@ -197,7 +184,7 @@ font pango:DejaVu Sans Mono 18
 exec --no-startup-id system76-power graphics power off
 
 # Wallpaper
-output "*" bg ~/Documents/dotfiles/walls/waves.png fill
+output "*" bg $wall fill
 
 # Gnome keyring
 exec --no-startup-id dbus-update-activation-environment --all
@@ -221,17 +208,17 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 #swaybar
 bar {
-
-    position bottom
-
-    status_command i3status
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+		swaybar_command waybar
 }
 
+# Gaps And No Borders:
+gaps inner 5
+gaps outer 5 
+font pango:monospace 0
+titlebar_padding 1
+titlebar_border_thickness 0
+
+# setting the power mode
+exec_always auto_battery
 
 include /etc/sway/config.d/*

@@ -12,7 +12,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # == oh my posh setup ==
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
-
 # == zsh plugins ==
 
 zinit light zsh-users/zsh-syntax-highlighting
@@ -29,7 +28,7 @@ bindkey '^ ' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
-bindkey -s '^f' 'tmux-sessionizer'
+bindkey -s '^t' 'tmux-sessionizer'
 
 # ==History==
 HISTSIZE=5000
@@ -51,6 +50,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # ==Aliases==
 alias vim="nvim"
 alias ls="ls --color"
+alias mm="micromamba"
+alias dstart="systemctl --user start docker"
+alias dstop="systemctl --user stop docker"
 
 # ==Crab stuf==
 . "$HOME/.cargo/env"
@@ -59,18 +61,15 @@ alias ls="ls --color"
 ## Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nikhilhenry/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE='/home/nikhilhenry/.local/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/nikhilhenry/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+    eval "$__mamba_setup"
 else
-    if [ -f "/home/nikhilhenry/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/nikhilhenry/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nikhilhenry/miniconda3/bin:$PATH"
-    fi
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+unset __mamba_setup
+# <<< mamba initialize <<<
