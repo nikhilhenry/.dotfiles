@@ -16,6 +16,7 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
+zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 # ==completions==
@@ -28,7 +29,7 @@ bindkey '^ ' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
-bindkey -s '^t' 'tmux-sessionizer'
+bindkey -s '^k' 'tmux-sessionizer'
 
 # ==History==
 HISTSIZE=5000
@@ -73,3 +74,10 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# fnm
+FNM_PATH="/home/nikhilhenry/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/nikhilhenry/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
