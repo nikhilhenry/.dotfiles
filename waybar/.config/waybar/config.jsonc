@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "bottom",
-    "modules-left": ["sway/workspaces"],
+    "modules-left": ["sway/workspaces","sway/mode"],
     "modules-right": ["cpu","battery","disk","network", "clock"],
     "sway/window": {
         "max-length": 50
