@@ -1,6 +1,6 @@
 * {
-font-size: 18px;
-font-family:"SF Pro Text, Font Awesome 6 Free";
+    font-size: 18px;
+    font-family:"SF Pro Text, Font Awesome 6 Free";
 }
 
 window#waybar{
@@ -9,28 +9,28 @@ window#waybar{
 }
 
 .modules-right {
-  padding: 0 10px;
+    padding: 0 10px;
 }
 
 #workspaces button:hover {
-  border-color: rgba(0,0,0,0);
-  box-shadow: none; /* Remove predefined box-shadow */
-  text-shadow: none; /* Remove predefined text-shadow */
-  background: none; /* Remove predefined background color (white) */
-  transition: none; /* Disable predefined animations */
+    border-color: rgba(0,0,0,0);
+    box-shadow: none; /* Remove predefined box-shadow */
+    text-shadow: none; /* Remove predefined text-shadow */
+    background: none; /* Remove predefined background color (white) */
+    transition: none; /* Disable predefined animations */
 }
 #workspaces {
-  border-radius: 10px;
-  padding-right: 10px;
+    border-radius: 10px;
+    padding-right: 10px;
 }
 
 #workspaces button {
-  color: #cccccc;
-  padding: 4px 4px;
+    color: #cccccc;
+    padding: 4px 4px;
 }
 
 #workspaces button:hover {
-  background-color: rgba(150,150,150, 0.15);
+    background-color: rgba(150,150,150, 0.15);
 }
 
 #workspaces button.focused {
@@ -47,13 +47,13 @@ window#waybar{
 #disk,
 #pulseaudio,
 #network {
-  padding: 0 10px;
+    padding: 0 10px;
 }
 
 #battery.critical:not(.charging) {
-  color: #f53c3c;
+    color: #f53c3c;
 }
 
 #battery.charging {
-  color: #77dd77;
+    color: #77dd77;
 }
