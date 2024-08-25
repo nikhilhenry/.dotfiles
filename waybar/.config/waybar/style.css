@@ -45,6 +45,7 @@ window#waybar{
 #battery,
 #cpu,
 #disk,
+#pulseaudio,
 #network {
   padding: 0 10px;
 }
