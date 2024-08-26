@@ -1,0 +1,33 @@
+(defsrc
+  caps
+  enter
+  a s d f ;; map to different sway workspaces
+)
+
+(defalias
+    esccrtl (tap-hold 100 100 esc lctl)
+)
+
+
+(defalias
+    swayhome (layer-while-held sway)
+)
+
+(defalias
+    entersway (tap-hold 100 100 enter @swayhome)
+)
+
+
+(deflayer base
+    @esccrtl
+    @entersway
+    _ _ _ _
+)
+
+
+(deflayermap sway
+    a M-1
+    s M-2
+    d M-3
+    f M-4
+)
