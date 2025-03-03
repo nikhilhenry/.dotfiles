@@ -1,9 +1,14 @@
 font-size = 20
 title = Ghostty@Legion5Pro
 theme = rose-pine
+command = zsh -c "source ~/Documents/dotfiles/ros/ros.sh && exec zsh"
+background-opacity = 0.6
+window-inherit-working-directory = true
+working-directory = inherit
+confirm-close-surface = false
 keybind = ctrl+a>c=new_tab
 keybind = ctrl+a>x=close_surface
-keybind = ctrl+a>right_bracket=new_split:right
+keybind = ctrl+a>shift+backslash=new_split:right
 keybind = ctrl+a>minus=new_split:down
 keybind = ctrl+a>one=goto_tab:1
 keybind = ctrl+a>two=goto_tab:2
