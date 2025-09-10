@@ -1,0 +1,54 @@
+[Unit]
+Documentation=https://github.com/jtroo/kanata
+Wants=modprobe@uinput.service
+After=modprobe@uinput.service
+
+[Service]
+Type=simple
+User=kanata
+ExecStart=/usr/local/bin/kanata --cfg /kanata_config/config.kbd
+Restart=no
+# Security
+CapabilityBoundingSet=
+DeviceAllow=/dev/uinput rw
+DeviceAllow=char-input
+DeviceAllow=/dev/stdin
+DevicePolicy=strict
+PrivateDevices=true
+BindPaths=/dev/uinput
+BindReadOnlyPaths=/dev/stdin
+BindReadOnlyPaths=/dev/input/
+BindReadOnlyPaths=/home/nikhilhenry/.config/kanata/:/kanata_config
+InaccessiblePaths=/dev/shm
+LockPersonality=true
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateNetwork=true
+PrivateUsers=true
+# The following can not be enabled, otherwise Kanata can not open /dev/uinput.
+# More hardening would require to explicitly list allowed system calls.
+#ProtectClock=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectSystem=strict
+ProtectControlGroups=true
+# Allow only on AddressFamily and then deny it to effectively deny everything
+RestrictAddressFamilies=AF_AX25
+RestrictAddressFamilies=~AF_AX25
+RestrictNamespaces=true
+SystemCallArchitectures=native
+SystemCallErrorNumber=EPERM
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged
+SystemCallFilter=~@resources
+RemoveIPC=true
+IPAddressDeny=any
+RestrictSUIDSGID=true
+RestrictRealtime=true
+MemoryDenyWriteExecute=true
+UMask=0077
+[Install]
+WantedBy=default.target
